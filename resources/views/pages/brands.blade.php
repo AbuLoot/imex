@@ -9,7 +9,7 @@
     <section class="container content">
       <div class="row">
         <!-- Main -->
-        <h1 class="content-title">Наши Бренды</h1>
+        <h1 class="content-title">{{ $page->title }}</h1>
 
           @foreach ($companies->chunk(4) as $chunk)
             <div class="row">
