@@ -1,0 +1,308 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url(../img/bg-light.png);
+  /*background-attachment: fixed;*/
+  background-repeat: no-repeat;
+  background-position: 100% center;
+  background-size: 100% auto;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Roboto', sans-serif;
+}
+.navbar-default {
+  background-color: #001729;
+}
+.navbar {
+  border: 0px solid transparent;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0;
+  }
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #002b4d;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #002b4d;
+}
+.navbar-brand {
+  height: auto;
+  padding: 10px;
+  margin-right: 10px;
+}
+.navbar-nav > li > a {
+  padding: 30px 20px;
+  line-height: 24px;
+}
+
+.navbar-contacts > li > a {
+  padding: 30px 10px;
+}
+.navbar-contacts > li > a > span {
+  font-size: 16px;
+  color: #fd3913;
+}
+
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: #002c4d;
+  border: 0px solid rgba(0, 0, 0, .15);
+  border-radius: 4px; 
+}
+.dropdown-menu > li > a {
+  color: #fff;
+  padding: 10px 20px;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+}
+@media (max-width: 767px) {
+  .navbar-toggle {
+    margin-top: 26px;
+    border: 0px solid transparent;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+  .navbar-collapse {
+    border-top: 0px solid transparent; 
+  }
+  .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .navbar-contacts > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+    padding: 10px 10px 10px 60px;
+  }
+}
+
+/* Marketing */
+.marketing-title {
+  margin-top: 150px;
+  font-size: 42px;
+  font-weight: 300;
+}
+
+
+/* Brands */
+.brands {
+  margin-top: 170px;
+}
+.brands-title {
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-top: 170px;
+}
+
+@media (max-width: 767px) {
+  .marketing-title {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+  .brands {
+    margin-top: 60px;
+  }
+}
+
+/* Content */
+.content {
+  min-height: 700px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.content-title {
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+
+/* Product */
+.panel-custom {
+  min-height: 600px;
+  padding-bottom: 30px;
+  -webkit-box-shadow: 0 1px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, .175);
+}
+.panel-custom .breadcrumb {
+  padding: 15px;
+  margin-bottom: 0;
+  background-color: transparent;
+}
+
+
+
+/* Catalog */
+.thumbnail {
+  padding: 15px 5px 5px;
+  text-align: center;
+  background-color: #fff;
+  border: 0px solid #ddd;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .175);
+}
+.products .thumbnail {
+  min-height: 325px;
+}
+.products .thumbnail > img {
+  height: 220px;
+}
+
+
+/* Categories */
+.categories{
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+  background: url("../img/category.png") no-repeat;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-position: center top;
+  opacity: 0.8;
+  filter: alpha(opacity=80);  /* IE 5-7 */
+  -moz-opacity: 0.8;          /* Netscape */
+  -khtml-opacity: 0.8;
+}
+@media (max-width: 767px) {
+  .categories{
+    background-position: left top;
+  }
+}
+.categories ul > li:first-child {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 25px;
+  /*border-bottom: 2px solid #ff7468;*/
+  -webkit-box-shadow: 0 7px 10px rgba(0, 0, 0, .175);
+  box-shadow: 0 7px 10px rgba(0, 0, 0, .175);
+}
+.categories .active{
+  background-color: rgba(255,255,255,0.3);
+}
+.categories ul {
+  padding-top: 130px;
+}
+.categories ul li a {
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 25px;
+}
+.categories ul li a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.3);
+}
+
+/* Other categories */
+.list-group {
+  background-color: rgba(0, 23, 41, 0.8);
+}
+a.list-group-item {
+  color: #fff;
+  padding: 10px 30px;
+  background-color: transparent;
+  border: none;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+a.list-group-item:hover,
+a.list-group-item:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(0, 23, 41, 0.70);
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  background-color: rgba(0, 23, 41, 0.70);
+  border-color: transparent;
+}
+.pagination {
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .175);
+}
+
+/* How to Find Us */
+.how-to-find-us {
+  color: #fff;
+  padding: 100px 0;
+  font-weight: 300;
+  min-height: 400px;
+  text-align: center;
+  background-color: #001729;
+}
+.how-to-find-us h2 {
+  font-weight: 300;
+}
+
+/* Form App */
+.form-app {
+  padding: 60px;
+}
+.form-app h2 {
+  margin-bottom: 30px;
+}
+.input-lg {
+  border-radius: 0;
+}
+.btn-lg {
+  border-radius: 0;
+}
+
+/* Footer */
+.footer {
+  color: #fff;
+  padding: 50px 0;
+  font-weight: 300;
+  background-color: #001729;
+}
+.footer h3 {
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+.footer ul > li {
+  margin-bottom: 10px;
+}
+.footer ul > li > a {
+  color: #3884c7;
+}
+.footer-contacts > li > span {
+  color: #fd3913;
+}
+.sub-footer {
+  color: #fff;
+  padding: 40px 0;
+  font-weight: 300;
+  background-color: #001d33;
+}
