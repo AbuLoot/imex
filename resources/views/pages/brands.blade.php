@@ -7,22 +7,20 @@
 @section('content')
 
     <section class="container content">
-      <div class="row">
-        <!-- Main -->
-        <h1 class="content-title">{{ $page->title }}</h1>
+      <!-- Main -->
+      <h1 class="content-title">{{ $page->title }}</h1>
 
-          @foreach ($companies->chunk(4) as $chunk)
-            <div class="row">
-              @foreach ($chunk as $company)
-                <div class="col-md-3">
-                  <div class="thumbnail">
-                    <img src="/img/companies/{{ $company->logo }}" alt="..." class="img-responsive"><br>
-                  </div>
+        @foreach ($companies->chunk(4) as $chunk)
+          <div class="row">
+            @foreach ($chunk as $company)
+              <div class="col-md-3">
+                <div class="thumbnail">
+                  <img src="/img/companies/{{ $company->logo }}" alt="..." class="img-responsive"><br>
                 </div>
-              @endforeach
-            </div><br>
-          @endforeach
-      </div>
+              </div>
+            @endforeach
+          </div><br>
+        @endforeach
     </section>
 
 @endsection

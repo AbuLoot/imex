@@ -76,6 +76,7 @@
       </div>
     </nav>
 
+
     @include('layouts.alerts')
 
     <!-- Content -->
@@ -89,7 +90,7 @@
           <ul class="list-unstyled">
             @foreach ($pages as $page)
               @if (Request::is($page->slug, $page->slug.'/*'))
-                <li class="active"><a href="/{{ $page->slug }}">{{ $page->title }}</a></li>
+                <li><a class="active" href="/{{ $page->slug }}">{{ $page->title }}</a></li>
               @else
                 <li><a href="/{{ $page->slug }}">{{ $page->title }}</a></li>
               @endif
