@@ -7,8 +7,8 @@
     <title>@yield('title_description', 'imex.kz')</title>
     <meta name="description" content="@yield('meta_description', 'imex.kz')">
 
-    <link rel="icon" href="/img/favicon.ico" sizes="16x16" type="image/png">
-    <link rel="shortcut icon" href="/img/favicon.ico" sizes="16x16" type="image/png">
+    <link rel="icon" href="/img/favicon.png" sizes="16x16" type="image/png">
+    <link rel="shortcut icon" href="/img/favicon.png" sizes="16x16" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
