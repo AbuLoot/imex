@@ -10,27 +10,26 @@
       <div class="row">
         <div class="col-md-3">
           <aside class="categories">
-            <ul class="list-unstyled">
-              <li>Категории</li>
+            <img src="/img/sticker.png" class="img-responsive">
+            <h3>Категории</h3>
+            <div class="list-group">
               <?php $traverse = function ($categories) use (&$traverse) { ?>
                 <?php foreach ($categories as $category) : ?>
-                  <li>
-                    <?php if (count($category->descendants()->get()) > 0) : ?>
-                      <a>{{ $category->title }}</a>
-                    <?php else : ?>
-                      <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
-                    <?php endif; ?>
+                  <?php if (count($category->descendants()->get()) > 0) : ?>
+                    <a class="list-group-item">{{ $category->title }}</a>
+                  <?php else : ?>
+                    <a href="/catalog/{{ $category->slug }}" class="list-group-item">{{ $category->title }}</a>
+                  <?php endif; ?>
 
-                    <?php if ($category->children && count($category->children) > 0) : ?>
-                      <ul class="subcategories">
-                        <?php $traverse($category->children); ?>
-                      </ul>
-                    <?php endif; ?>
-                  </li>
+                  <?php if ($category->children && count($category->children) > 0) : ?>
+                    <div class="list-group">
+                      <?php $traverse($category->children); ?>
+                    </div>
+                  <?php endif; ?>
                 <?php endforeach; ?>
               <?php }; ?>
               <?php $traverse($categories); ?>
-            </ul>
+            </div>
           </aside>
         </div>
 
