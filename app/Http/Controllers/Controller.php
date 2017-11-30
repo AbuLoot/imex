@@ -22,7 +22,7 @@ class Controller extends BaseController
 
     	$pages = Page::where('status', 1)->orderBy('sort_id')->get();
         $companies = Company::where('status', 1)->orderBy('sort_id')->take(5)->get();
-        $categories = Category::get()->toTree();
+        $categories = Category::orderBy('sort_id')->get()->toTree();
         // $categories = Category::orderBy('sort_id')->get();
 
         view()->share([

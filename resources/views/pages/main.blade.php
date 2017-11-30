@@ -5,7 +5,9 @@
     <section class="container content">
       <div class="row">
         <div class="col-md-7">
-          <h1 class="marketing-title">«IMEX TRD» занимается оптовыми продажами косметических, гигиенических товаров Японского производство.</h1>
+          <h1 class="marketing-title">TOO IMEX TRD - ПРЯМЫЕ ОПТОВЫЕ ПОСТАВКИ ТОВАРОВ НАРОДНОГО ПОТРЕБЛЕНИЯ<br> ИЗ ЯПОНИИ.</h1>
+          <br><br><br>
+          <h2 style="font-weight: 300;">ВСЕ ТОВАРЫ ЯВЛЯЮТСЯ ОРИГИНАЛЬНЫМИ И СЕРТИФИЦИРОВАНЫ.</h2>
         </div>
         <div class="col-md-5 brands">
           <!-- <h2 class="brands-title">Бренды</h2> -->
@@ -33,6 +35,8 @@
               <img src="/img/brands/Mitomo_logo-300x107.png" class="img-responsive">
             </div>
           </div> -->
+        </div>
+        <div class="col-md-12">
         </div>
       </div>
     </section>

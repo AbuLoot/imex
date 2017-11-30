@@ -11,7 +11,7 @@
         <div class="col-md-3">
           <aside class="categories">
             <img src="/img/sticker.png" class="img-responsive">
-            <h3>Категории</h3>
+            <h3 class="text-uppercas2e">Категории</h3>
             <div class="list-group">
               <?php $traverse = function ($categories) use (&$traverse) { ?>
                 <?php foreach ($categories as $category) : ?>

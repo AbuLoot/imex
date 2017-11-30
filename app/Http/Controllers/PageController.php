@@ -40,7 +40,6 @@ class PageController extends Controller
 
         $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(27);
 
-
         return view('pages.catalog')->with([
             'category' => $category,
             'products' => $products,
