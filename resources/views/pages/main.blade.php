@@ -26,15 +26,15 @@
             <div class="col-md-6 col-xs-6">
               <img src="/img/brands/nanoclo2_logo.gif" class="img-responsive">
             </div>
-          </div>
-          <!-- <div class="row">
-            <div class="col-md-6">
-              <img src="/img/brands/Shiseido_logo.svg.png" class="img-responsive">
+          </div><br>
+          <div class="row">
+            <div class="col-md-12">
+              <img src="/img/brands/gunze.png" class="img-responsive">
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <img src="/img/brands/Mitomo_logo-300x107.png" class="img-responsive">
-            </div>
-          </div> -->
+            </div> -->
+          </div>
         </div>
         <div class="col-md-12">
         </div>
