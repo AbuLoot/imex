@@ -56,6 +56,8 @@ Route::post('store-order', 'BasketController@storeOrder');
 Route::get('toggle-favorite/{id}', 'FavoriteController@toggleFavorite');
 
 
+Route::get('import', 'PageController@import');
+
 // Pages
 Route::get('/', 'PageController@index');
 

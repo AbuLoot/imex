@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   box-shadow: 0 3px 12px rgba(0, 0, 0, .175);
 }
 .products .thumbnail {
-  min-height: 325px;
+  min-height: 370px;
 }
 .products .thumbnail > img {
   height: 220px;

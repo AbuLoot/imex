@@ -69,7 +69,7 @@
             @endforeach
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-contacts">
-            <li><a href="#"><span class="glyphicon glyphicon-phone"></span> +7 (727) 2206241</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-earphone"></span> +7 (727) 2206241</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-phone"></span> +7 (775) 2095404</a></li>
           </ul>
         </div>
