@@ -28,6 +28,8 @@ class PageController extends Controller
     {
         $brand_arr = [];
 
+        dd();
+
         Excel::load(public_path('files/data.xls'), function ($reader) use ($brand_arr) {
 
              foreach ($reader->toArray() as $row) {
