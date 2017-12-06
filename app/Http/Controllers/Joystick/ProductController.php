@@ -50,7 +50,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|min:2|max:80|unique:products',
+            'title' => 'required|unique:products',
             'category_id' => 'required|numeric',
             // 'images' => 'mimes:jpeg,jpg,png,svg,svgs,bmp,gif',
         ]);
@@ -143,7 +143,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title' => 'required|min:2|max:80',
+            'title' => 'required',
             'category_id' => 'required|numeric',
         ]);
 

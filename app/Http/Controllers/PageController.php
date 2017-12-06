@@ -28,18 +28,17 @@ class PageController extends Controller
     {
         $brand_arr = [];
 
-        dd();
 
-        Excel::load(public_path('files/data.xls'), function ($reader) use ($brand_arr) {
+        Excel::load(public_path('files/goods.xls'), function ($reader) use ($brand_arr) {
 
              foreach ($reader->toArray() as $row) {
 
                 $image_name = mb_strtolower($row['barcode']).'.jpg';
 
-                if (file_exists(public_path('files/photos/'.$image_name))) {
+                if (file_exists(public_path('files/new/'.$image_name))) {
 
-                    $image_org = Storage::get('files/photos/'.$image_name);
-                    // $image_src = file_get_contents('files/photos/'.$image_name);
+                    $image_org = Storage::get('files/new/'.$image_name);
+                    // $image_src = file_get_contents('files/new/'.$image_name);
 
                     $company = Company::where('title', 'LIKE', '%'.$row['brand'].'%')->first();
                     $category = Category::where('title_description', 'LIKE', '%'.$row['category'].'%')->first();
@@ -93,6 +92,8 @@ class PageController extends Controller
                     // $product->mode = $request->mode;
                     $product->status = 1;
                     $product->save();
+
+                    echo $product->barcode.' - '.$product->title.'<br>';
                 }
                 else {
                     $brand_arr[$row['brand']][] = $row['brand'];
