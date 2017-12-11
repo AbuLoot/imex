@@ -31,7 +31,7 @@
             <div class="row">
               <div class="col-md-offset-3 col-md-6 form-app">
                 <h2>Есть вопросы? Оставьте заявку!</h2>
-                <form action="/agency/send-app" method="POST" enctype="multipart/form-data">
+                <form action="/send-app" method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="_token" value="WNgmpSg3cr8z7T7rRaZmPrnjZyjkN73ZSWHgW7aA">
                   <div class="form-group">
                     <input type="text" class="form-control input-lg" name="name" placeholder="Введите имя" minlength="2" maxlength="40" required>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
-use Excel;
+// use Excel;
 use Storage;
 
 use App\Page;
@@ -123,11 +123,49 @@ class PageController extends Controller
     {
         $category = Category::where('slug', $category_slug)->first();
 
-        $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+        // $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+
+        if (isset($request->companies_id) AND !empty($request->companies_id)) {
+
+            list($keys, $companies_id) = array_divide($request->companies_id);
+
+            $products = Product::where('status', 1)
+                ->where('category_id', $category->id)
+                ->whereIn('company_id', $companies_id)
+                ->paginate(20);
+
+            $products->appends([
+                'companies_id' => $companies_id
+            ]);
+
+            return response()->json(view('pages.products-render', ['products' => $products])->render());
+        }
+        else if ($request->ajax()) {
+
+            $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+
+            return response()->json(view('pages.products-render', ['products' => $products])->render());
+        }
+        else {
+            $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+        }
+
+        $companies = DB::table('products')
+            ->join('companies', 'companies.id', '=', 'products.company_id')
+            ->select('companies.id', 'companies.slug', 'companies.title')
+            ->where('products.category_id', $category->id)
+            // ->where('companies.status', 1)
+            ->distinct()
+            ->get();
+
+        if ($request->ajax()) {
+            return response()->json(view('pages.products-render', ['products' => $products, 'companies' => $companies])->render());
+        }
 
         return view('pages.catalog')->with([
             'category' => $category,
             'products' => $products,
+            'companies' => $companies,
         ]);
     }
 
