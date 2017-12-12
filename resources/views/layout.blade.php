@@ -132,7 +132,7 @@
           <ul class="list-unstyled footer-contacts">
             <li><span class="glyphicon glyphicon-globe"></span> ТОО IMEX TRD</li>
             <li><span class="glyphicon glyphicon-map-marker"></span> г Алматы, ул Булкушева 9а</li>
-            <li><span class="glyphicon glyphicon-phone"></span> +7 (727) 2206241</li>
+            <li><span class="glyphicon glyphicon-earphone"></span> +7 (727) 2206241</li>
             <li><span class="glyphicon glyphicon-phone"></span> +7 (775) 2095404</li>
             <li><span class="glyphicon glyphicon-envelope"></span> imextrd17@gmail.com</li>
           </ul>

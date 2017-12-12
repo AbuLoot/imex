@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-3 col-xs-12">
           <aside class="categories">
-            <img src="/img/sticker.png" class="img-responsive">
+            <!-- <img src="/img/sticker.png" class="img-responsive"> -->
             <h3 class="text-uppercase">Категории</h3>
             <div class="list-group">
               <?php $traverse = function ($categories) use (&$traverse) { ?>
@@ -35,7 +35,7 @@
           <form action="/filter-products" method="get" id="filter">
             <ul class="list-group">
               <li class="list-group-item">
-                <h4 class="text-uppercase">По брендам</h4>
+                <h4 class="text-uppercase text-center">По брендам</h4>
               </li>
               @foreach ($companies as $company)
                 <li class="list-group-item">

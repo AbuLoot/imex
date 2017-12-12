@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mail;
 use Validator;
 
 use App\App;
@@ -57,45 +58,37 @@ class InputController extends Controller
     public function sendApp(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:60',
-            'phone' => 'required|min:5',
+            'name' => 'required|min:2|max:60',
+            'phone' => 'required|min:5'
         ]);
 
         if ($validator->fails()) {
-            return redirect('/#contact-form')->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $app = new App;
         $app->name = $request->name;
         $app->email = $request->email;
         $app->phone = $request->phone;
-        $app->message = $request->message;
+        $app->message = $request->site . '<br>' . $request->message;
         $app->save();
 
-        // Email subject.
-        $subject = "Japan Import - novaya zayavka ot $request->name";
+        $name = $request->name;
 
-        // Email content.
-        $content = "<h2>Japan Import</h2>";
-        $content .= "<b>Имя: $request->name</b><br>";
-        $content .= "<b>Номер: $request->phone</b><br>";
-        $content .= "<b>Email: $request->email</b><br>";
-        $content .= "<b>Текст: $request->message</b><br>";
-        $content .= "<b>Дата: " . date('Y-m-d') . "</b><br>";
-        $content .= "<b>Время: " . date('G:i') . "</b>";
+        try {
 
-        $headers = "From: info@jpi.kz \r\n" .
-                   "MIME-Version: 1.0" . "\r\n" . 
-                   "Content-type: text/html; charset=UTF-8" . "\r\n";
+            Mail::send('emails.mail', ['data' => $request->all()], function($message) use ($name) {
+                $message->to('imextrd17@gmail.com', 'IMEX TRD')->subject('IMEX TRD - Новая заявка от '.$name);
+                $message->from('electron.servant@gmail.com', 'Electron Servant');
+            });
 
-        // Send the email.
-        if (mail('issayev.adilet@gmail.com', $subject, $content, $headers)) {
             $status = 'alert-success';
             $message = 'Ваша заявка принято.';
-        }
-        else {
+
+        } catch (Exception $e) {
+            
             $status = 'alert-danger';
-            $message = 'Произошла ошибка.';
+            $message = 'Произошла ошибка: '.$e->getMessage();
         }
 
         return redirect()->back()->with([

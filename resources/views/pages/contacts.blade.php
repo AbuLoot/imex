@@ -32,18 +32,33 @@
               <div class="col-md-offset-3 col-md-6 form-app">
                 <h2>Есть вопросы? Оставьте заявку!</h2>
                 <form action="/send-app" method="POST" enctype="multipart/form-data">
-                  <input type="hidden" name="_token" value="WNgmpSg3cr8z7T7rRaZmPrnjZyjkN73ZSWHgW7aA">
-                  <div class="form-group">
-                    <input type="text" class="form-control input-lg" name="name" placeholder="Введите имя" minlength="2" maxlength="40" required>
+                  {{ csrf_field() }}
+                  <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <input type="text" class="form-control input-lg" name="name" placeholder="Введите имя" minlength="2" maxlength="40" value="{{ (old('name')) ? old('name') : '' }}" required>
+                    @if ($errors->has('name'))
+                      <span class="help-block">{{ $errors->first('name') }}</span>
+                    @endif
+                  </div>
+                  <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <input type="email" class="form-control input-lg" name="email" placeholder="Введите Email" minlength="5" maxlength="80" value="{{ (old('email')) ? old('email') : '' }}" required>
+                    @if ($errors->has('email'))
+                      <span class="help-block">{{ $errors->first('email') }}</span>
+                    @endif
+                  </div>
+                  <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                    <input type="tel" pattern="(\+?\d[- .]*){7,13}" class="form-control input-lg" name="phone" placeholder="Введите номер телефона" minlength="5" maxlength="20" value="{{ (old('phone')) ? old('phone') : '' }}" required>
+                    @if ($errors->has('phone'))
+                      <span class="help-block">{{ $errors->first('phone') }}</span>
+                    @endif
+                  </div>
+                  <div class="form-group{{ $errors->has('site') ? ' has-error' : '' }}">
+                    <input type="tel" class="form-control input-lg" name="site" placeholder="Введите веб-сайт" minlength="4" maxlength="50"value="{{ (old('site')) ? old('site') : '' }}" >
+                    @if ($errors->has('site'))
+                      <span class="help-block">{{ $errors->first('site') }}</span>
+                    @endif
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control input-lg" name="email" placeholder="Введите Email" minlength="5" maxlength="80" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="tel" class="form-control input-lg" name="phone" placeholder="Введите номер телефона" minlength="5" maxlength="20" required>
-                  </div>
-                  <div class="form-group">
-                    <textarea name="text" class="form-control input-lg" rows="3" placeholder="Введите текст"></textarea>
+                    <textarea name="message" class="form-control input-lg" rows="3" placeholder="Введите текст">{{ (old('text')) ? old('text') : '' }}</textarea>
                   </div>
                   <button type="submit" class="btn btn-default btn-lg btn-bordered">Отправить</button>
                 </form>
@@ -53,5 +68,30 @@
         </div>
       </div>
     </section>
+
+@endsection
+
+@section('scripts')
+
+  <!-- Message Status -->
+  @if (session('alert'))
+    <div class="modal fade" id="message-status" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center">Статус заявки</h4>
+          </div>
+          <div class="modal-body">
+            <p class="alert {{ session('alert') }}">{{ session('message') }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script> $('#message-status').modal('show'); </script>
+  @endif
 
 @endsection
