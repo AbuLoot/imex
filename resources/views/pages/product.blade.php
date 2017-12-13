@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-3">
           <aside class="categories">
-            <img src="/img/sticker.png" class="img-responsive">
+            <!-- <img src="/img/sticker.png" class="img-responsive"> -->
             <h3>Категории</h3>
             <div class="list-group">
               <?php $traverse = function ($categories) use (&$traverse) { ?>
