@@ -123,14 +123,18 @@ class PageController extends Controller
     {
         $category = Category::where('slug', $category_slug)->first();
 
-        // $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+        $ids[] = $category->id;
+
+        if ($category->children && count($category->children) > 0) {
+            $ids[] = $category->children->pluck('id');
+        }
 
         if (isset($request->companies_id) AND !empty($request->companies_id)) {
 
             list($keys, $companies_id) = array_divide($request->companies_id);
 
             $products = Product::where('status', 1)
-                ->where('category_id', $category->id)
+                ->whereIn('category_id', $ids)
                 ->whereIn('company_id', $companies_id)
                 ->paginate(20);
 
@@ -142,12 +146,12 @@ class PageController extends Controller
         }
         else if ($request->ajax()) {
 
-            $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+            $products = Product::where('status', 1)->whereIn('category_id', $ids)->paginate(20);
 
             return response()->json(view('pages.products-render', ['products' => $products])->render());
         }
         else {
-            $products = Product::where('status', 1)->where('category_id', $category->id)->paginate(20);
+            $products = Product::where('status', 1)->whereIn('category_id', $ids)->paginate(20);
         }
 
         $companies = DB::table('products')

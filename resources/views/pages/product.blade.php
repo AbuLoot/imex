@@ -12,24 +12,27 @@
           <aside class="categories">
             <!-- <img src="/img/sticker.png" class="img-responsive"> -->
             <h3>Категории</h3>
-            <div class="list-group">
+            <ul class="categories-menu">
               <?php $traverse = function ($categories) use (&$traverse) { ?>
                 <?php foreach ($categories as $category) : ?>
                   <?php if (count($category->descendants()->get()) > 0) : ?>
-                    <a class="list-group-item">{{ $category->title }}</a>
+                    <li class="dropdown-submenu">
+                      <a href="/catalog/{{ $category->slug }}">{{ $category->title }} <span class="glyphicon glyphicon-menu-right text-right"></span></a>
+                      <?php if ($category->children && count($category->children) > 0) : ?>
+                        <ul class="dropdown-menu dropdown-custom">
+                          <?php $traverse($category->children); ?>
+                        </ul>
+                      <?php endif; ?>
+                    </li>
                   <?php else : ?>
-                    <a href="/catalog/{{ $category->slug }}" class="list-group-item">{{ $category->title }}</a>
-                  <?php endif; ?>
-
-                  <?php if ($category->children && count($category->children) > 0) : ?>
-                    <div class="list-group">
-                      <?php $traverse($category->children); ?>
-                    </div>
+                    <li>
+                      <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
+                    </li>
                   <?php endif; ?>
                 <?php endforeach; ?>
               <?php }; ?>
               <?php $traverse($categories); ?>
-            </div>
+            </ul>
           </aside>
         </div>
 

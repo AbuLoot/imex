@@ -12,24 +12,27 @@
           <aside class="categories">
             <!-- <img src="/img/sticker.png" class="img-responsive"> -->
             <h3 class="text-uppercase">Категории</h3>
-            <div class="list-group">
+            <ul class="categories-menu">
               <?php $traverse = function ($categories) use (&$traverse) { ?>
                 <?php foreach ($categories as $category) : ?>
-                  <?php if (count($category->descendants()->get()) > 0) : ?>
-                    <a class="list-group-item">{{ $category->title }}</a>
+                  <?php if ($category->descendants->count() > 0) : ?>
+                    <li class="dropdown-submenu">
+                      <a href="/catalog/{{ $category->slug }}">{{ $category->title }} <span class="glyphicon glyphicon-menu-right text-right"></span></a>
+                      <?php if ($category->children && count($category->children) > 0) : ?>
+                        <ul class="dropdown-menu dropdown-custom">
+                          <?php $traverse($category->children); ?>
+                        </ul>
+                      <?php endif; ?>
+                    </li>
                   <?php else : ?>
-                    <a href="/catalog/{{ $category->slug }}" class="list-group-item">{{ $category->title }}</a>
-                  <?php endif; ?>
-
-                  <?php if ($category->children && count($category->children) > 0) : ?>
-                    <div class="list-group">
-                      <?php $traverse($category->children); ?>
-                    </div>
+                    <li>
+                      <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
+                    </li>
                   <?php endif; ?>
                 <?php endforeach; ?>
               <?php }; ?>
               <?php $traverse($categories); ?>
-            </div>
+            </ul>
           </aside>
 
           <form action="/filter-products" method="get" id="filter">
@@ -49,8 +52,15 @@
         </div>
 
         <!-- Main -->
-        <div class="col-md-9">
+        <div class="col-md-9 col-xs-12">
           <h1 class="content-title">{{ $category->title }}</h1>
+          <?php if ($category->children && count($category->children) > 0) : ?>
+            <ul class="list-inline">
+              <?php foreach ($category->children as $child_category) : ?>
+                <li><a href="/catalog/{{ $child_category->slug }}">{{ $child_category->title }}</a></li>
+              <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
 
           <div id="products">
             @foreach ($products->chunk(4) as $chunk)
@@ -83,8 +93,16 @@
 
 @section('scripts')
   <script>
+    $(function() {
+      $('.list-group-item').on('click', function() {
+        $('.glyphicon', this)
+          .toggleClass('glyphicon-chevron-right')
+          .toggleClass('glyphicon-chevron-down');
+      });
+    });
+
     // Filter products
-    $('#filter').on( 'click', 'input', function(e) {
+    $('#filter').on('click', 'input', function(e) {
       var companiesId = new Array();
       var page = $(location).attr('href').split('catalog')[1];
       $('input[name="companies_id[]"]:checked').each(function() {

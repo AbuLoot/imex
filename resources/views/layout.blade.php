@@ -46,19 +46,18 @@
               <ul class="dropdown-menu">
                 <?php $traverse = function ($categories) use (&$traverse) { ?>
                   <?php foreach ($categories as $category) : ?>
-                    <li>
-                      <?php if (count($category->descendants()->get()) > 0) : ?>
-                        <a>{{ $category->title }}</a>
-                      <?php else : ?>
-                        <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
-                      <?php endif; ?>
-
-                      <?php if ($category->children && count($category->children) > 0) : ?>
-                        <ul class="subcategories">
+                    <?php if ($category->children && count($category->children) > 0) : ?>
+                      <li class="dropdown-submenu">
+                        <a href="/catalog/{{ $category->slug }}">{{ $category->title }} <span class="glyphicon glyphicon-menu-right text-right"></span></a>
+                        <ul class="dropdown-menu">
                           <?php $traverse($category->children); ?>
                         </ul>
-                      <?php endif; ?>
-                    </li>
+                      </li>
+                    <?php else : ?>
+                      <li>
+                        <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
+                      </li>
+                    <?php endif; ?>
                   <?php endforeach; ?>
                 <?php }; ?>
                 <?php $traverse($categories); ?>
@@ -103,14 +102,10 @@
             <?php $traverse = function ($categories) use (&$traverse) { ?>
               <?php foreach ($categories as $category) : ?>
                 <li>
-                  <?php if (count($category->descendants()->get()) > 0) : ?>
-                    <a>{{ $category->title }}</a>
-                  <?php else : ?>
-                    <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
-                  <?php endif; ?>
+                  <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
 
                   <?php if ($category->children && count($category->children) > 0) : ?>
-                    <ul class="subcategories">
+                    <ul>
                       <?php $traverse($category->children); ?>
                     </ul>
                   <?php endif; ?>
