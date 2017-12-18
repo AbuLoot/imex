@@ -134,8 +134,8 @@ class PageController extends Controller
             list($keys, $companies_id) = array_divide($request->companies_id);
 
             $products = Product::where('status', 1)
-                ->whereIn('category_id', $ids)
                 ->whereIn('company_id', $companies_id)
+                ->whereIn('category_id', $ids)
                 ->paginate(20);
 
             $products->appends([
@@ -157,7 +157,7 @@ class PageController extends Controller
         $companies = DB::table('products')
             ->join('companies', 'companies.id', '=', 'products.company_id')
             ->select('companies.id', 'companies.slug', 'companies.title')
-            ->where('products.category_id', $category->id)
+            ->whereIn('products.category_id', $ids)
             // ->where('companies.status', 1)
             ->distinct()
             ->get();

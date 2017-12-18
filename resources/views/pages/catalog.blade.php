@@ -93,14 +93,6 @@
 
 @section('scripts')
   <script>
-    $(function() {
-      $('.list-group-item').on('click', function() {
-        $('.glyphicon', this)
-          .toggleClass('glyphicon-chevron-right')
-          .toggleClass('glyphicon-chevron-down');
-      });
-    });
-
     // Filter products
     $('#filter').on('click', 'input', function(e) {
       var companiesId = new Array();
