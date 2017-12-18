@@ -59,7 +59,7 @@
               <?php foreach ($category->children as $child_category) : ?>
                 <li><a href="/catalog/{{ $child_category->slug }}">{{ $child_category->title }}</a></li>
               <?php endforeach; ?>
-            </ul>
+            </ul><br>
           <?php endif; ?>
 
           <div id="products">
