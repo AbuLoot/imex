@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background-color: #002c4d;
   border: 0px solid rgba(0, 0, 0, .15);
   border-radius: 4px;
+  margin: 0 0;
 }
 .dropdown-menu > li > a {
   color: #fff;
@@ -274,7 +275,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  white-space: nowrap;
 }
 .categories-menu > li > a:hover,
 .categories-menu > li > a:focus {
