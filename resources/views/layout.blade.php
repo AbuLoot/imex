@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">
-            <img src="/img/logo.png" class="img-responsive">
+            <img src="/img/logo-new.png" class="img-responsive">
           </a>
         </div>
 
