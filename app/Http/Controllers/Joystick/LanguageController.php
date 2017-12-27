@@ -28,7 +28,6 @@ class LanguageController extends Controller
         ]);
 
         $language = new Language;
-
         $language->sort_id = ($request->sort_id > 0) ? $request->sort_id : $language->count() + 1;
         $language->slug = (empty($request->slug)) ? str_slug($request->title) : $request->slug;
         $language->title = $request->title;

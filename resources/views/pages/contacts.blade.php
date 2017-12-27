@@ -52,7 +52,7 @@
                     @endif
                   </div>
                   <div class="form-group{{ $errors->has('site') ? ' has-error' : '' }}">
-                    <input type="tel" class="form-control input-lg" name="site" placeholder="Введите веб-сайт" minlength="4" maxlength="50"value="{{ (old('site')) ? old('site') : '' }}" >
+                    <input type="text" class="form-control input-lg" name="site" placeholder="Введите веб-сайт" minlength="4" maxlength="50"value="{{ (old('site')) ? old('site') : '' }}" >
                     @if ($errors->has('site'))
                       <span class="help-block">{{ $errors->first('site') }}</span>
                     @endif

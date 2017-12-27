@@ -27,7 +27,6 @@ class OptionController extends Controller
         ]);
 
         $option = new Option;
-
         $option->sort_id = ($request->sort_id > 0) ? $request->sort_id : $option->count() + 1;
         $option->slug = (empty($request->slug)) ? str_slug($request->title) : $request->slug;
         $option->title = $request->title;

@@ -118,7 +118,7 @@ class ProductController extends Controller
         $product->status = ($request->status == 'on') ? 1 : 0;
         $product->save();
 
-        if ( ! is_null($request->options_id)) {
+        if (!is_null($request->options_id)) {
             $product->options()->attach($request->options_id);
         }
 
@@ -256,7 +256,7 @@ class ProductController extends Controller
         $product->status = ($request->status == 'on') ? 1 : 0;
         $product->save();
 
-        if ( ! is_null($request->options_id)) {
+        if (!is_null($request->options_id)) {
             $product->options()->sync($request->options_id);
         }
 
@@ -267,7 +267,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        if (! empty($product->images)) {
+        if (!empty($product->images)) {
 
             $images = unserialize($product->images);
 

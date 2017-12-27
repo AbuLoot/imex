@@ -27,7 +27,6 @@ class PageController extends Controller
         ]);
 
         $page = new Page;
-
         $page->sort_id = ($request->sort_id > 0) ? $request->sort_id : $page->count() + 1;
         $page->slug = (empty($request->slug)) ? str_slug($request->title) : $request->slug;
         $page->title = $request->title;

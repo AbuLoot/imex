@@ -28,7 +28,6 @@ class NewController extends Controller
         ]);
 
         $new = new News;
-
         $new->sort_id = ($request->sort_id > 0) ? $request->sort_id : $new->count() + 1;
         $new->slug = (empty($request->slug)) ? str_slug($request->title) : $request->slug;
         $new->title = $request->title;

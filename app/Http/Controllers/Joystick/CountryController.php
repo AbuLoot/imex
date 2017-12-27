@@ -27,7 +27,6 @@ class CountryController extends Controller
         ]);
 
         $country = new Country;
-
         $country->sort_id = ($request->sort_id > 0) ? $request->sort_id : $country->count() + 1;
         $country->slug = (empty($request->slug)) ? str_slug($request->title) : $request->slug;
         $country->title = $request->title;

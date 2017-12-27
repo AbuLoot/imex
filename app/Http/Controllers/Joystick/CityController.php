@@ -31,7 +31,6 @@ class CityController extends Controller
         ]);
 
         $city = new City;
-
         $city->sort_id = ($request->sort_id > 0) ? $request->sort_id : $city->count() + 1;
         $city->country_id = $request->country_id;
         $city->slug = (empty($request->slug)) ? str_slug($request->title) : $request->slug;
