@@ -136,6 +136,7 @@ class PageController extends Controller
             $products = Product::where('status', 1)
                 ->whereIn('company_id', $companies_id)
                 ->whereIn('category_id', $ids)
+                ->orderBy('sort_id')
                 ->paginate(20);
 
             $products->appends([
@@ -146,12 +147,12 @@ class PageController extends Controller
         }
         else if ($request->ajax()) {
 
-            $products = Product::where('status', 1)->whereIn('category_id', $ids)->paginate(20);
+            $products = Product::where('status', 1)->whereIn('category_id', $ids)->orderBy('sort_id')->paginate(20);
 
             return response()->json(view('pages.products-render', ['products' => $products])->render());
         }
         else {
-            $products = Product::where('status', 1)->whereIn('category_id', $ids)->paginate(20);
+            $products = Product::where('status', 1)->whereIn('category_id', $ids)->orderBy('sort_id')->paginate(20);
         }
 
         $companies = DB::table('products')
