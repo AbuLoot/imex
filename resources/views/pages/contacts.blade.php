@@ -29,10 +29,8 @@
             </div>
 
             <div class="row">
-              <div class="col-md-4"><br><br>
-                <div class="col-md-12">
-                  {!! $page->content !!}
-                </div>
+              <div class="col-md-6 form-app">
+                {!! $page->content !!}
               </div>
               <div class="col-md-6 form-app">
                 <h2>Есть вопросы? Оставьте заявку!</h2>
