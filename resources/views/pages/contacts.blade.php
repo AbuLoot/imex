@@ -29,7 +29,12 @@
             </div>
 
             <div class="row">
-              <div class="col-md-offset-3 col-md-6 form-app">
+              <div class="col-md-4"><br><br>
+                <div class="col-md-12">
+                  {!! $page->content !!}
+                </div>
+              </div>
+              <div class="col-md-6 form-app">
                 <h2>Есть вопросы? Оставьте заявку!</h2>
                 <form action="/send-app" method="POST" enctype="multipart/form-data">
                   {{ csrf_field() }}
