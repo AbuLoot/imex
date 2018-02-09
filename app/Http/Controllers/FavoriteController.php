@@ -70,7 +70,6 @@ class FavoriteController extends Controller
 
             $items = Session::get('items');
             $products = Product::whereIn('id', $items['products_id'])->get();
-
         }
 
         return view('site.order', compact('products', 'countries'));
